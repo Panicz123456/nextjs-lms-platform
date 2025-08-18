@@ -1,7 +1,11 @@
 "use client";
 
+import { toast } from "sonner";
 import { useState, useTransition } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -14,18 +18,15 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { Button } from "@/components/ui/button";
-import { authClient } from "@/lib/auth-client";
-import { useRouter, useSearchParams } from "next/navigation";
-import { toast } from "sonner";
+import { Loader, Loader2 } from "lucide-react";
 
 export const VerifyRequestView = () => {
   const router = useRouter();
   const [otp, setOtp] = useState("");
   const [emailPending, startTransition] = useTransition();
   const params = useSearchParams();
-	const email = params.get("email") as string;
-	const isOtpCompleted = otp.length === 6
+  const email = params.get("email") as string;
+  const isOtpCompleted = otp.length === 6;
 
   const verifyOPT = () => {
     startTransition(async () => {
@@ -81,7 +82,14 @@ export const VerifyRequestView = () => {
           onClick={verifyOPT}
           disabled={emailPending || !isOtpCompleted}
           className="w-full">
-          Verify Account
+          {emailPending ? (
+            <>
+              <Loader2 className="size-4 animate-spin" />
+              <span>Loading...</span>
+            </>
+          ) : (
+            "Verify Account"
+          )}
         </Button>
       </CardContent>
     </Card>
