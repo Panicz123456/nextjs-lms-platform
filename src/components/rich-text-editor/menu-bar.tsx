@@ -12,7 +12,6 @@ import {
   ListOrderedIcon,
   RedoIcon,
   StrikethroughIcon,
-  Undo,
   UndoIcon,
 } from "lucide-react";
 
@@ -21,10 +20,11 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../ui/tooltip";
-import { Toggle } from "../ui/toggle";
+} from "@/components/ui/tooltip";
+import { Toggle } from "@/components/ui/toggle";
+import { Button } from "@/components/ui/button";
+
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
 
 interface Props {
   editor: Editor | null;

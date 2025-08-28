@@ -7,8 +7,9 @@ import { authClient } from "@/lib/auth-client";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-import Logo from "../../../../../public/logo.png";
 import { UserDropdown } from "./user-dropdown";
+
+import Logo from "../../../../../public/logo.png";
 
 const navigationItems = [
   {

@@ -39,6 +39,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Uploader } from "../../../../components/file-uploader/uploader";
 import { RichTextEditor } from "@/components/rich-text-editor/Editor";
 
 export const CreateCourseView = () => {
@@ -152,11 +153,6 @@ export const CreateCourseView = () => {
                     <FormLabel>Description</FormLabel>
                     <FormControl>
                       <RichTextEditor field={field} />
-                      {/* <Textarea
-                        placeholder="Description"
-                        className="min-h-[120px]"
-                        {...field}
-                      /> */}
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -170,7 +166,7 @@ export const CreateCourseView = () => {
                   <FormItem className="w-full">
                     <FormLabel>Thumbnail image</FormLabel>
                     <FormControl>
-                      <Input placeholder="thumbnail url" {...field} />
+                      <Uploader />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
